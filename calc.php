@@ -1,19 +1,49 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="stylesheet" href="css/base.css">
-	<title></title>
-</head>
-<body>
-	<div>
-		<span class="btn no2048">2048</span>
-		<span class="btn no2">2</span>
-		<span class="btn no16">16</span>
-		<span class="btn no512">512</span>
-	</div>
-</body>
-</html>
+<?php
+  //値を取得
+$left =null;
+$right=null;
+$ope=null;
+$answer=null;
+$errors = array();
+if($_SERVER['REQUEST_METHOD']== 'POST'){
+  if(isset($_POST['leftbox'])){
+    $left = $_POST['leftbox'];
+  }
+  if(isset($_POST['rightbox'])){
+    $right = $_POST['rightbox'];
+  }
+  if(($_POST['symbol']) == '+' || '-' || '×' || '÷'){
+    $ope =$_POST['symbol'];
+  }
+
+  if((is_numeric($left)) && (is_numeric($right))){
+    switch ($ope) {
+      case "＋":
+        $answer = $left + $right;
+        break;
+
+      case "－":
+        $answer = $left - $right;
+        break;
+
+      case "×":
+        $answer = $left * $right;
+        break;
+
+      case "÷":
+        if($right == '0'){
+          $errors['no_division']= 'このような割り算はできません';
+
+        }else{
+          $answer = $left / $right;
+        }
+        break;
+      default:
+
+        $errors['no_four_arithmetic'] = '四則演算してください';
+        break;
+    }
+  }else{
+    $errors['no_calculation'] ='このような計算はできません';
+  }
+}
