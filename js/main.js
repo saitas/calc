@@ -10,7 +10,12 @@
         $('.btn').click(function(){
             category.val(this.dataset.category);
 //            alert(this.dataset.category);
-            pushed.val( $(this).text() );
+
+            if(this.dataset.value){
+                pushed.val( this.dataset.value );
+            }else{
+                pushed.val( $(this).text() );
+            }
             form.submit();
         });
     });

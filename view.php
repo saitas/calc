@@ -25,14 +25,14 @@
             <span class="btn symbol size1" data-category="special">M+</span>
             <br>
 
-            <span class="btn symbol size2" data-category="special">+/-</span>
+            <span class="btn symbol size2" data-category="special" data-value="abs">+/-</span>
             <span class="btn number size1" data-category="number">7</span>
             <span class="btn number size1" data-category="number">8</span>
             <span class="btn number size1" data-category="number">9</span>
             <span class="btn symbol size1" data-category="symbol">÷</span>
             <br>
 
-            <span class="btn symbol size1" data-category="special">▶</span>
+            <span class="btn symbol size1" data-category="special" data-value="bs">▶</span>
             <span class="btn number size1" data-category="number">4</span>
             <span class="btn number size1" data-category="number">5</span>
             <span class="btn number size1" data-category="number">6</span>
@@ -48,7 +48,7 @@
 
             <span class="btn clear size1" data-category="clear">AC</span>
             <span class="btn number size1" data-category="number">0</span>
-            <span class="btn number size1" data-category="number">・</span>
+            <span class="btn number size1" data-category="number" data-value=".">・</span>
             <span class="btn number size1" data-category="symbol">=</span>
             <span class="btn symbol size1" data-category="symbol">＋</span>
             <br>
@@ -60,6 +60,7 @@
     <input type="hidden" id="category" name="category" value="<?php echo $category;?>">
     <input type="hidden" id="stack" name="stack" value="<?php echo $stackValue;?>">
     <input type="hidden" id="status" name="status" value="<?php echo $status;?>">
+    <input type="hidden" id="isPushedBeforeSymbol" name="isPushedBeforeSymbol" value="<?php echo $isPushedBeforeSymbol;?>">
 
     <input type="submit" value="計算">
     <input type="reset" value="クリア">
