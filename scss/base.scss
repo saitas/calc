@@ -17,6 +17,7 @@ $no2-color: #ffa0bb;
 $no16-color: #f5f558;
 $no512-color: #24b894;
 
+
 @font-face {
 	font-family: 'DSEG7';
 	src: url('../fonts/DSEG7Modern-Italic.woff2') format('woff2'),
@@ -36,6 +37,7 @@ a {
 }
 
 .calc-content {
+	position: relative;
 	width: 340px;
 	padding: 16px;
 	border: solid 4px #333333;
@@ -111,7 +113,21 @@ a {
 	border-radius: $shadow;
 //	background: #fb7c00;
 	background: #cdddc0;
+	z-index: 1;
 }
+
+
+#error-display {
+	position: absolute;
+	top: 26px;
+	left: 26px;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: 'DSEG7';
+	display: block;
+	z-index: 10;
+}
+
 
 
 .no2 {
@@ -140,4 +156,9 @@ a {
 	background: #00a5df;
 	//	box-shadow: 0 $shadow 0 #006c93;
 	box-shadow: 0 $shadow 0 darken( #00a5df, $dark-range);
+}
+
+.hide {
+	visibility: hidden;
+	opacity: 0;
 }

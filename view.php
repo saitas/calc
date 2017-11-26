@@ -15,8 +15,11 @@
 
 <form name="calc-form" id="calc-form" action="" method="post">
     <div class="calc-content">
+        <div id="error-display" class="<?php echo $calc->getIsError();?>">
+            E
+        </div>
         <div>
-            <input type="text" maxlength="10" class="display" name="display" value="<?php echo $displayValue;?>" readonly>　
+            <input type="text" maxlength="10" class="display" name="display" value="<?php echo $calc->getDisplayValue();?>" readonly>　
         </div>
         <div>
             <span class="btn symbol size1" data-category="special">MC</span>
@@ -57,13 +60,14 @@
     </div>
 
     <input type="hidden" id="pushed" name="pushed" value="">
-    <input type="hidden" id="category" name="category" value="<?php echo $category;?>">
-    <input type="hidden" id="stack" name="stack" value="<?php echo $stackValue;?>">
-    <input type="hidden" id="status" name="status" value="<?php echo $status;?>">
-    <input type="hidden" id="isPushedBeforeSymbol" name="isPushedBeforeSymbol" value="<?php echo $isPushedBeforeSymbol;?>">
-
+    <input type="hidden" id="category" name="category" value="<?php echo $calc->getCategory();?>">
+    <input type="hidden" id="stack" name="stack" value="<?php echo $calc->getStackValue();?>">
+    <input type="hidden" id="status" name="status" value="<?php echo $calc->getStatus();?>">
+    <input type="hidden" id="isPushedBeforeSymbol" name="isPushedBeforeSymbol" value="<?php echo $calc->getIsPushedBeforeSymbol();?>">
+<?php /*
     <input type="submit" value="計算">
     <input type="reset" value="クリア">
+*/ ?>
 </form>
 <br>
 </body>
